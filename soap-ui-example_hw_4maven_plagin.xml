@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="9ca62d06-4873-4107-8a97-52ad5cd23c81" activeEnvironment="Default" name="qa_guru_soap_ui_example_hw(soap_ws)" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="TestSuite" value="Country_TestSuite 1"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:WsdlInterface" id="c140a378-6ea1-4835-909d-69a9759d1ce1" wsaVersion="NONE" name="CountriesPortSoap11" type="wsdl" bindingName="{http://spring.io/guides/gs-producing-web-service}CountriesPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/countries.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/countries.wsdl"><con:part><con:url>http://localhost:8080/ws/countries.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://spring.io/guides/gs-producing-web-service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://spring.io/guides/gs-producing-web-service" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://spring.io/guides/gs-producing-web-service">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://spring.io/guides/gs-producing-web-service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getCountryRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCountryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="country" type="tns:country"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="country">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="population" type="xs:int"/>
+          <xs:element name="capital" type="xs:string"/>
+          <xs:element name="currency" type="tns:currency"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="currency">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="GBP"/>
+          <xs:enumeration value="EUR"/>
+          <xs:enumeration value="PLN"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getCountryResponse">
+    <wsdl:part element="tns:getCountryResponse" name="getCountryResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCountryRequest">
+    <wsdl:part element="tns:getCountryRequest" name="getCountryRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CountriesPort">
+    <wsdl:operation name="getCountry">
+      <wsdl:input message="tns:getCountryRequest" name="getCountryRequest"></wsdl:input>
+      <wsdl:output message="tns:getCountryResponse" name="getCountryResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CountriesPortSoap11" type="tns:CountriesPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getCountry">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getCountryRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCountryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CountriesPortService">
+    <wsdl:port binding="tns:CountriesPortSoap11" name="CountriesPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws</con:endpoint></con:endpoints><con:operation id="b3577be3-eedd-4d31-8cce-178e2ed8ff6f" isOneWay="false" action="" name="getCountry" bindingOperationName="getCountry" type="Request-Response" outputName="getCountryResponse" inputName="getCountryRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8e5f0526-d58c-4e82-9aa9-f68d2601fe9d" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gs="http://spring.io/guides/gs-producing-web-service">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gs:getCountryRequest>\r
+         <gs:name>Spain</gs:name>\r
+      </gs:getCountryRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://spring.io/guides/gs-producing-web-service/CountriesPort/getCountryRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="f2f45aa2-7eeb-4813-88ab-ddc947f65101" name="Country_TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="900b76a8-c7eb-499e-9b5a-eca9aa4396e6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="1.Check correct Сountry data" searchProperties="true"><con:settings/><con:testStep type="request" name="Check correct Spain" id="1d60f439-eee1-4f8e-b78f-413f78801bb6"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountriesPortSoap11</con:interface><con:operation>getCountry</con:operation><con:request name="Check correct Spain" id="82e4376b-2894-4863-845f-6dd461472730"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gs="http://spring.io/guides/gs-producing-web-service">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gs:getCountryRequest>\r
+         <gs:name>Spain</gs:name>\r
+      </gs:getCountryRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="93581c90-ed3f-4ed6-b110-790a215262ba"/><con:assertion type="Schema Compliance" id="1651c809-07c4-4bbb-af90-5ddf7487b2a4"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="e8db5e19-6934-44a8-8200-ea69ba09ec1b"/><con:assertion type="GroovyScriptAssertion" id="ab43873f-e5f6-45b6-902b-ba5f29e7e373" name="Script Assertion"><con:configuration><scriptText>import com.eviware.soapui.support.XmlHolder
+
+def holder = new XmlHolder( messageExchange.responseContentAsXml )
+
+assert holder["//ns2:name"] == "Spain"
+assert holder["//ns2:population"] == "46704314"</scriptText></con:configuration></con:assertion><con:assertion type="Simple Contains" id="48641c40-0994-4464-9fe6-a113a4119040" name="Contains"><con:configuration><token>46704314</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Check correct UK" id="eb56a4f1-a632-4302-b2a3-08711bcdd522"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CountriesPortSoap11</con:interface><con:operation>getCountry</con:operation><con:request name="Check correct UK" id="72e6e273-e0d0-41b1-aaf9-4844214e1033"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gs="http://spring.io/guides/gs-producing-web-service">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gs:getCountryRequest>\r
+         <gs:name>United Kingdom</gs:name>\r
+      </gs:getCountryRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="0d0dc0bf-f261-4908-943f-d7e024e04610"/><con:assertion type="Schema Compliance" id="b6656c83-bc2b-4927-b8c2-119f3d02cbc5"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="31f82e38-e3ec-47ed-9764-f1adfa3efc18"/><con:assertion type="Simple Contains" id="8401c1fe-90f6-4797-9624-2b47737043d0" name="Contains"><con:configuration><token>London</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Sensitive Information Exposure" id="b8af847d-4e2b-40e1-8b4b-3cfcc0a03a3e" name="Sensitive Information Exposure"><con:configuration><IncludeProjectSpecific>true</IncludeProjectSpecific><IncludeGlobal>true</IncludeGlobal></con:configuration></con:assertion><con:assertion type="Response SLA Assertion" id="b8b51cd6-e25b-42e5-977e-fbf2a331b68a" name="Response SLA"><con:configuration><SLA>2000</SLA></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
